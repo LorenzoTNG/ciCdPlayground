@@ -10,7 +10,7 @@ new App({
 		
 		// What do you associate with the term 'CI/CD'?
 		associations: [
-			'Ehm, what?'
+			'Ehm, what? '
 		],
 		// Which CI/CD tools do you use in your project?
 		tools: 'Jenkins, maybe?',
