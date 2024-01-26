@@ -7,7 +7,7 @@ pipeline {
 
     stages {
         stage('checkout and install') {
-            git 'https://github.com/LorenzoTNG/ciCdPlayground.git'
+            git branch: 'main', url: 'https://github.com/LorenzoTNG/ciCdPlayground'
             sh 'yarn'
         }
 
