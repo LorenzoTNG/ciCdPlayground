@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+
+    tools {
+        nodejs 'yarn'
+    }
+
+    stages {
+        stage('checkout and install') {
+            git 'https://github.com/LorenzoTNG/ciCdPlayground.git'
+            sh 'yarn'
+        }
+
+        stage('unit tests') {
+            steps {
+                sh 'yarn test'
+            }
+        }
+
+        stage('build') {
+            steps {
+                sh 'yarn build'
+                sh 'yarn test:e2e'
+            }
+
+            post {
+                success {
+                    junit '**/reports/**/*.xml'
+                }
+            }
+        }
+    }
+}
